@@ -1,0 +1,154 @@
+<!doctype html>
+
+<html lang="pt-br">
+	<head>
+		<title>Portifólio de Matérias - Insper</title>
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/portifolio-menu.css">
+		<script src="assets/lib/app.js"></script>
+		<script src="assets/lib/database.js"></script>
+		<script src="assets/lib/codes.js"></script>
+		<script src="assets/lib/handlebars.js"></script>
+		<script src="assets/js/portifolio-menu.js"></script>
+		<script src="assets/js/mapa.js"></script>
+		<script src="assets/js/sidenav.js"></script>
+		<script async defer
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_qrJwEjXE0ZjvUzM3VuZnaFNbrgkYbU4&callback=initMap">
+		</script>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width = device-width, initial-scale=1">
+	</head>
+
+	<body>
+		<header>
+			<div class="sidebar-icon" onclick="openNav()">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<a href="index.html">
+				<img src="assets/img/logo.png" alt="Logo do Insper" class="logo">
+			</a>
+		</header>
+
+		<nav id="sidenav">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			<ul class="menu">
+				<li class="menu-item">
+					<h2>Empreendedorismo</h2>
+					<ul class="submenu">
+						<li class="submenu-item">
+							<a href="portifolio-menu.html?categoria=empreend&curso=gde">Cases Grandes Desafios da Engenharia</a>
+						</li>
+						<li class="submenu-item">
+							<a href="portifolio-menu.html?categoria=empreend&curso=model_neg">Modelo de Negócios</a>
+						</li>
+						<li class="submenu-item">
+							<a href="portifolio-menu.html?categoria=empreend&curso=inov_increment">Inovação Incremental</a>
+						</li>
+					</ul>
+				</li>
+				<li class="menu-item">
+					<h2>Mão na Massa</h2>
+					<ul class="submenu">
+						<li class="submenu-item">
+							<a href="portifolio-menu.html?categoria=massa&curso=carroca">Melhoria para a Carroça</a>
+						</li>
+						<li class="submenu-item">
+							<a href="portifolio-menu.html?categoria=massa&curso=girafa">Job Rotation (Girafa)</a>
+						</li>
+						<li class="submenu-item">
+							<a href="portifolio-menu.html?categoria=massa&curso=meteorologia">Estação Meteorológica</a>
+						</li>
+					</ul>
+				</li>
+				<li class="menu-item">
+					<h2>Matemática</h2>
+					<ul class="submenu">
+						<li class="submenu-item">
+							<a href="portifolio-menu.html?categoria=matematica&curso=projeto_modsim">Projeto Final de Modelagem e Simulação do Mundo Físico</a>
+						</li>
+						<li class="submenu-item">
+							<a href="portifolio-menu.html?categoria=matematica&curso=projeto_matvar">Projeto Final da Matematica da Variação</a>
+						</li>
+						<li class="submenu-item">
+							<a href="portifolio-menu.html?categoria=matematica&curso=projeto_matmult">Projeto Final de Matemática Multivariada</a>
+						</li>
+					</ul>
+				</li>
+				<li class="menu-item">
+					<h2>Digitais</h2>
+					<ul class="submenu">
+						<li class="submenu-item">
+							<a href="portifolio-menu.html?categoria=digitais&curso=projeto_ciedad">Projeto Final de Ciência dos Dados</a>
+						</li>
+						<li class="submenu-item">
+							<a href="portifolio-menu.html?categoria=digitais&curso=projeto_codes">Projeto Final de Co-Design de Aplicativos</a>
+						</li>
+						<li class="submenu-item">
+							<a href="portifolio-menu.html?categoria=digitais&curso=projeto_desoft">Projeto Final de Design de Software</a>
+						</li>
+					</ul>
+				</li>
+				<li class="menu-item">
+					<h2>Industriais</h2>
+					<ul class="submenu">
+						<li class="submenu-item">
+							<a href="portifolio-menu.html?categoria=industriais&curso=projeto_descmat">Projeto Final de Desconstruindo a Matéria</a>
+						</li>
+						<li class="submenu-item">
+							<a href="portifolio-menu.html?categoria=industriais&curso=projeto_acioele">Projeto Final de Acionamentos Elétricos</a>
+						</li>
+						<li class="submenu-item">
+							<a href="portifolio-menu.html?categoria=industriais&curso=projeto_modcont">Projeto Final de Modelagem e Controle</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+
+		<main class="hidden">
+			<h1 class ="materia">{{nome}}</h1>
+			<div class="professor">
+				<h2 class = "inf-prof">Ministrado por: <br />{{ministrador}}</h2>
+				<img class = "imagem-prof" src={{imagem}} alt="Um Professor do Brasil">
+			</div>
+			<div class="descricao">
+				<h2>Descrição</h2>
+				<p>{{descricao}}</p>
+			</div>
+			<div class="etapas">
+				<h2 class= "etap" >Etapas</h2>
+				<ol class = "listaetapas">
+					{{#each etapas as |etapas|}}
+						<li>{{etapas}}</li>
+					{{/each}}
+				</ol>
+			</div>
+			<div class="recursos">
+				<h2 class="rec">Recursos necessários para o projeto</h2>
+				<ul class = "listarec">
+					{{#each recursos as |recursos|}}
+						<li>{{recursos}}</li>
+					{{/each}}
+				</ul>
+			</div>
+		</main>
+
+		<footer>
+			<div class="telefone">
+				<h2 class="contatos">Contatos</h2>
+				<p class="tel1">Telefone 1: 98765-4321</p>
+				<p class="tel2">Telefone 2: 1234-5678</p>
+			</div>
+			<div class="local">
+				<h2 class="mapa-quest">Onde Estamos?</h2>
+				<div id="map"></div>
+				<p class="endereco">Rua Quatá, 300 - Vila Olímpia - São Paulo</p>
+				<p class="cep">CEP: 04546-042</p>
+			</div>
+			<p class="copyright"> 2018 GARL Todos os direitos reservados </p>
+		</footer>
+	</body>
+</html>
